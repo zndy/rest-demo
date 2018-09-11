@@ -5,6 +5,8 @@ import com.johnny.restdemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 public class EmployeeController {
 
@@ -32,6 +34,11 @@ public class EmployeeController {
     @GetMapping("/who/{id}")
     Employee one(@PathVariable Long id) {
         return employeeService.getById(id);
+    }
+
+    @GetMapping("all")
+    Map<Long, Employee> all() {
+        return employeeService.getAll();
     }
 
     //----------post-----------------

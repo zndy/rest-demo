@@ -3,9 +3,7 @@ package com.johnny.restdemo.service;
 import com.johnny.restdemo.entity.Employee;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -19,10 +17,14 @@ public class EmployeeService {
         employees.put(4L, new Employee(4, "Matthias", 31));
         employees.put(5L, new Employee(5, "Amgad", 27));
         employees.put(6L, new Employee(6, "Bernhard", 32));
-        employees.put(7L, new Employee(6, "Florian", 25));
+        employees.put(7L, new Employee(7, "Florian", 25));
     }
 
     public Employee getById(long id) {
         return employees.get(id);
+    }
+
+    public Map<Long, Employee> getAll() {
+        return employees;
     }
 }
