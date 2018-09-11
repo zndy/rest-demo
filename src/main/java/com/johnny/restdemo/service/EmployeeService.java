@@ -27,4 +27,13 @@ public class EmployeeService {
     public Map<Long, Employee> getAll() {
         return employees;
     }
+
+    public Employee addEmployee(Employee employee) {
+        employees.put(employee.getId(), employee);
+        return employee;
+    }
+
+    public void deleteById(Long id) {
+        employees.remove(id);
+    }
 }
