@@ -16,9 +16,8 @@ public class EmployeeController {
 
     @RequestMapping(value="/showstr", method = RequestMethod.GET)
     public String show(){
-//        return new Employee().setId(1).setName("Johnny").setAge(36).toString();
-        return new String("hallo world");
+//      return new Employee().setId(1).setName("Johnny").setAge(36).toString();
+        return "hallo world";
     }
-
 
 }
