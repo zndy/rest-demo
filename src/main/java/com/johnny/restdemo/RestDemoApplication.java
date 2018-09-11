@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = EmployeeController.class)
+//@ComponentScan(basePackageClasses = EmployeeController.class)
 public class RestDemoApplication {
 
 	public static void main(String[] args) {
