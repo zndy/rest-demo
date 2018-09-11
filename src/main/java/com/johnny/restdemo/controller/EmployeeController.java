@@ -1,23 +1,43 @@
 package com.johnny.restdemo.controller;
 
 import com.johnny.restdemo.entity.Employee;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.johnny.restdemo.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class EmployeeController {
 
-    @RequestMapping(value="/show", method = RequestMethod.GET)
-    public @ResponseBody Employee showMe(){
-        return new Employee().setId(1).setName("Johnny").setAge(36);
+    @Autowired
+    private EmployeeService employeeService;
+
+    //--------get-------------
+    //altmodisch
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello() {
+        return "hallo world";
     }
 
-    @RequestMapping(value="/showstr", method = RequestMethod.GET)
-    public String show(){
-//      return new Employee().setId(1).setName("Johnny").setAge(36).toString();
-        return "hallo world";
+    @RequestMapping(value = "/who1", method = RequestMethod.GET)
+    public @ResponseBody
+    Employee who1() {
+        return employeeService.getById(1);
+    }
+
+    @GetMapping("/who2")
+    Employee who2() {
+        return employeeService.getById(2);
+    }
+
+    @GetMapping("/who/{id}")
+    Employee one(@PathVariable Long id) {
+        return employeeService.getById(id);
+    }
+
+    //----------post-----------------
+    @PostMapping("/changeName")
+    Employee changeEmployeeName(@RequestBody Employee newEmployee) {
+        return newEmployee.setName("afterChange");
     }
 
 }
