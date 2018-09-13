@@ -27,7 +27,7 @@ public class RestDemoApplicationTests {
     public void shouldReturn200WhenSendingRequestToController() throws Exception {
         System.out.println("port:" + port);
         ResponseEntity<Employee> entity = this.testRestTemplate.getForEntity(
-                "http://localhost:" + this.port + "/who", Employee.class);
+                "http://localhost:" + this.port + "/all", Employee.class);
         Employee employee = entity.getBody();
         System.out.println("employee = " + employee);
         then(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
