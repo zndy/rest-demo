@@ -16,14 +16,6 @@ public class MemoryObserverJob {
     @Autowired
     public ApplicationEventPublisher eventPublisher;
 
-    public MemoryObserverJob() {
-        System.out.println("event publisher initialize...");
-    }
-
-    //    public MemoryObserverJob(ApplicationEventPublisher eventPublisher) {
-//        this.eventPublisher = eventPublisher;
-//    }
-
     @Scheduled(fixedRate = 1000)
     public void doSomething() {
         MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
