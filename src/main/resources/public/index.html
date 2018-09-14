@@ -6,6 +6,7 @@
 <div><a href="javascript:void" onclick="sendRequest()">Send Request</a></div>
 <div><a href="javascript:void" onclick="addUser()">Send addUser</a></div>
 <div><a href="javascript:void" onclick="addUser1()">Send addUser1</a></div>
+<div><a href="javascript:void" onclick="addUser2()">Send addUser2</a></div>
 <div id="sseDiv"></div>
 
 <script>
@@ -18,15 +19,15 @@
     }
 
     function addUser(){
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
             document.getElementById("sseDiv").innerHTML +=
             this.responseText;
          }
         };
-      xhttp.open("GET", "/all", true);
-      xhttp.send();
+      xhr.open("GET", "/all", true);
+      xhr.send(null);
     }
 
     function addUser1(){
@@ -38,7 +39,17 @@
          }
         })
       xhr.open("GET", "/who/1", true)
-      xhr.send()
+      xhr.send(null)
+    }
+
+        function addUser2(){
+        var xhr = new XMLHttpRequest()
+        xhr.addEventListener("load", function() {
+            document.getElementById("sseDiv").innerHTML +=
+            this.responseText;
+        })
+      xhr.open("GET", "/who/2", true)
+      xhr.send(null)
     }
 
 </script>
