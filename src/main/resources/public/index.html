@@ -5,6 +5,7 @@
 <h1>Sse client</h1>
 <div><a href="javascript:void" onclick="sendRequest()">Send Request</a></div>
 <div><a href="javascript:void" onclick="addUser()">Send addUser</a></div>
+<div><a href="javascript:void" onclick="addUser1()">Send addUser1</a></div>
 <div id="sseDiv"></div>
 
 <script>
@@ -26,6 +27,18 @@
         };
       xhttp.open("GET", "/all", true);
       xhttp.send();
+    }
+
+    function addUser1(){
+        var xhr = new XMLHttpRequest()
+        xhr.addEventListener("readystatechange", function() {
+         if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("sseDiv").innerHTML +=
+            this.responseText;
+         }
+        })
+      xhr.open("GET", "/who/1", true)
+      xhr.send()
     }
 
 </script>
