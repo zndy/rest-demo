@@ -50,6 +50,15 @@ public class EmployeeController {
         return employeeService.getById(id);
     }
 
+    //problem
+    private long id;
+    @GetMapping("/whoDelay/{id}")
+    Employee oneDelay(@PathVariable Long id) throws InterruptedException {
+        this.id = id;
+        Thread.sleep(10000);
+        return employeeService.getById(this.id);
+    }
+
     @GetMapping("all")
     Map<Long, Employee> all() {
         return employeeService.getAll();
