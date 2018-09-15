@@ -19,7 +19,7 @@
         <!--})-->
     <!--</script>-->
     <script>
-        $.getJSON("all", function(res){
+        $.getJSON("http://localhost:8080/all", function(res){
                 $("#box").html(JSON.stringify(res));
             }
         )

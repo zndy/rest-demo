@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @RestController
+@CrossOrigin
 public class EmployeeController {
 
     private ExecutorService nonBlockingService = Executors.newCachedThreadPool();
